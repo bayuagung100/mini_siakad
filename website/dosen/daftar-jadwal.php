@@ -1,11 +1,12 @@
 <?php include "website/header.php" ?>
   <!-- =============================================== -->
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Ini Halaman Home
+        Ini Halaman Daftar jadwal
         <small>Mulai!</small>
       </h1>
       <!--<ol class="breadcrumb">
@@ -28,7 +29,7 @@
           </div>
         </div>
         <div class="box-body">
-          Ini Halaman Home
+          Ini Daftar jadwal
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

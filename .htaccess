@@ -3,7 +3,24 @@ RewriteEngine on
 
 RewriteRule ^$ index.php [L]
 
-RewriteRule ^admin$ index.php?content=admin/home [L]
-RewriteRule ^dosen$ index.php?content=dosen/home [L]
+# RewriteRule ^admin$ admin/ [L]
+RewriteRule ^admin/$ index.php?content=admin/home [L]
+# RewriteRule ^admin/daftar-dosen$ index.php?content=admin/daftar-dosen [L]
+RewriteRule ^admin/daftar-dosen/$ index.php?content=admin/daftar-dosen [L]
+# RewriteRule ^admin/daftar-mahasiswa$ index.php?content=admin/daftar-mahasiswa [L]
+RewriteRule ^admin/daftar-mahasiswa/$ index.php?content=admin/daftar-mahasiswa [L]
+# RewriteRule ^admin/daftar-matkul$ index.php?content=admin/daftar-matkul [L]
+RewriteRule ^admin/daftar-matkul/$ index.php?content=admin/daftar-matkul [L]
+# RewriteRule ^admin/daftar-jadwal$ index.php?content=admin/daftar-jadwal [L]
+RewriteRule ^admin/daftar-jadwal/$ index.php?content=admin/daftar-jadwal [L]
+
+# RewriteRule ^dosen$ dosen/ [L]
+RewriteRule ^dosen/$ index.php?content=dosen/home [L]
+# RewriteRule ^dosen/daftar-matkul$ index.php?content=dosen/daftar-matkul [L]
+RewriteRule ^dosen/daftar-matkul/$ index.php?content=dosen/daftar-matkul [L]
+# RewriteRule ^dosen/daftar-jadwal$ index.php?content=dosen/daftar-jadwal [L]
+RewriteRule ^dosen/daftar-jadwal/$ index.php?content=dosen/daftar-jadwal [L]
+
+RewriteRule ^logout$ website/logout.php [L]
 
 </IfModule>

@@ -1,4 +1,4 @@
-<?php include "../header.php" ?>
+<?php include "website/header.php" ?>
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -45,4 +45,4 @@
   <!-- /.content-wrapper -->
 
 
-<?php include "../footer.php" ?>
+<?php include "website/footer.php" ?>
