@@ -3,8 +3,7 @@ RewriteEngine on
 
 RewriteRule ^$ index.php [L]
 
-RewriteRule ^admin/$ index.php?content=admin/home [L]
-RewriteRule ^dosen/$ index.php?content=dosen/home [L]
-RewriteRule ^mahasiswa/$ index.php?content=mahasiswa/home [L]
+RewriteRule ^admin$ index.php?content=admin/home [L]
+RewriteRule ^dosen$ index.php?content=dosen/home [L]
 
 </IfModule>
