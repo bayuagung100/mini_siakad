@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2019 at 07:51 AM
--- Server version: 10.3.18-MariaDB-1
--- PHP Version: 7.3.9-1
+-- Waktu pembuatan: 06 Okt 2019 pada 14.30
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `attendance`
+-- Struktur dari tabel `attendance`
 --
 
 CREATE TABLE `attendance` (
@@ -39,7 +39,7 @@ CREATE TABLE `attendance` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Struktur dari tabel `courses`
 --
 
 CREATE TABLE `courses` (
@@ -51,7 +51,7 @@ CREATE TABLE `courses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Struktur dari tabel `roles`
 --
 
 CREATE TABLE `roles` (
@@ -60,7 +60,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `roles`
+-- Dumping data untuk tabel `roles`
 --
 
 INSERT INTO `roles` (`role_id`, `role_name`) VALUES
@@ -71,7 +71,7 @@ INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Struktur dari tabel `schedule`
 --
 
 CREATE TABLE `schedule` (
@@ -86,7 +86,7 @@ CREATE TABLE `schedule` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -97,25 +97,27 @@ CREATE TABLE `users` (
   `user_address` text NOT NULL,
   `user_email` varchar(64) NOT NULL,
   `user_phone_number` varchar(20) NOT NULL,
-  `user_gender` int(1) NOT NULL,
+  `user_gender` enum('L','P') NOT NULL,
   `user_image` varchar(64) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_role_id` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_code`, `user_name`, `user_dob`, `user_address`, `user_email`, `user_phone_number`, `user_gender`, `user_image`, `user_password`, `user_role_id`) VALUES
-(1, '1001', 'Resi', '2019-10-10', '', '', '', 1, '', '21232f297a57a5a743894a0e4a801fc3', 1);
+(1, '1001', 'Resi', '2019-10-10', '', '', '', 'L', '', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'admin', 'Administrator', '1998-09-14', 'Kampus', 'admin@gmail.com', '089634372389', 'L', '', '21232f297a57a5a743894a0e4a801fc3', 1),
+(3, 'dosen', 'Imam Sutanto', '2019-10-05', 'Kampus', 'imam@gmail.com', '', 'L', 'aceh-marathon.jpg', 'ce28eed1511f631af6b2a7bb0a85d636', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `attendance`
+-- Indeks untuk tabel `attendance`
 --
 ALTER TABLE `attendance`
   ADD PRIMARY KEY (`attendance_id`),
@@ -123,19 +125,19 @@ ALTER TABLE `attendance`
   ADD KEY `user_id` (`attendance_user_id`);
 
 --
--- Indexes for table `courses`
+-- Indeks untuk tabel `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`course_id`);
 
 --
--- Indexes for table `roles`
+-- Indeks untuk tabel `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Indexes for table `schedule`
+-- Indeks untuk tabel `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`schedule_id`),
@@ -143,7 +145,7 @@ ALTER TABLE `schedule`
   ADD KEY `user_id` (`schedule_user_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -151,59 +153,59 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`user_role_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `attendance`
+-- AUTO_INCREMENT untuk tabel `attendance`
 --
 ALTER TABLE `attendance`
   MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `courses`
+-- AUTO_INCREMENT untuk tabel `courses`
 --
 ALTER TABLE `courses`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT untuk tabel `roles`
 --
 ALTER TABLE `roles`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `schedule`
+-- AUTO_INCREMENT untuk tabel `schedule`
 --
 ALTER TABLE `schedule`
   MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `attendance`
+-- Ketidakleluasaan untuk tabel `attendance`
 --
 ALTER TABLE `attendance`
   ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`attendance_schedule_id`) REFERENCES `schedule` (`schedule_id`),
   ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`attendance_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `schedule`
+-- Ketidakleluasaan untuk tabel `schedule`
 --
 ALTER TABLE `schedule`
   ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`schedule_course_id`) REFERENCES `courses` (`course_id`),
   ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`schedule_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `users`
+-- Ketidakleluasaan untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_role_id`) REFERENCES `roles` (`role_id`);

@@ -5,8 +5,16 @@ RewriteRule ^$ index.php [L]
 
 # RewriteRule ^admin$ admin/ [L]
 RewriteRule ^admin/$ index.php?content=admin/home [L]
+
 # RewriteRule ^admin/daftar-dosen$ index.php?content=admin/daftar-dosen [L]
 RewriteRule ^admin/daftar-dosen/$ index.php?content=admin/daftar-dosen [L]
+RewriteRule ^admin/daftar-dosen/form/$ website/form.php [L]
+RewriteRule ^admin/daftar-dosen/form/aksi/$ website/aksi.php [L]
+
+RewriteRule ^admin/daftar-dosen/tambah/$ website/admin/tambah.php [L]
+RewriteRule ^admin/daftar-dosen/edit/$ website/admin/edit.php [L]
+RewriteRule ^admin/daftar-dosen/delete/$ website/admin/delete.php [L]
+
 # RewriteRule ^admin/daftar-mahasiswa$ index.php?content=admin/daftar-mahasiswa [L]
 RewriteRule ^admin/daftar-mahasiswa/$ index.php?content=admin/daftar-mahasiswa [L]
 # RewriteRule ^admin/daftar-matkul$ index.php?content=admin/daftar-matkul [L]

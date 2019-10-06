@@ -18,10 +18,11 @@
           $_SESSION['timeout'] = time() + 1000;
           $_SESSION['is_login'] = true;
           if ($_SESSION['role'] == 'admin') {
-              header('location: admin/');
+            header('location: admin/');
           } else {
               header('location: dosen/');
           }
+          
       } else {
           $message = '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Username atau password salah.</div>';
       }

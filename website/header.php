@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -91,7 +97,7 @@
             </li>
             <!-- Control Sidebar Toggle Button -->
             <li>
-              <a data-toggle="control-sidebar"><?php echo $tanggal; ?></a>
+              <a data-toggle="control-sidebar"><?php echo date("Y-m-d"); ?></a>
             </li>
           </ul>
         </div>

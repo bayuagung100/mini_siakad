@@ -1,48 +1,54 @@
-<?php include "website/header.php" ?>
-  <!-- =============================================== -->
+<?php include "website/header.php";
+?>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  
     <section class="content-header">
       <h1>
-        Ini Halaman Daftar dosen
-        <small>Mulai!</small>
+        Halaman Daftar Dosen
       </h1>
-      <!--<ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol>-->
     </section>
-
-    <!-- Main content -->
     <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Daftar Dosen</h3>
+              <a href="form/?act=tambah&for=daftar-dosen" class="btn btn-primary" style="float:right"><i class="fa fa-plus"></i> Tambah</a>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <?php
+              buka_tabel(array("Kode Dosen","Nama","Email","Alamat"));
+              $no = 1;
+              $query = $mysqli->query("SELECT * FROM users JOIN roles ON users.user_role_id = roles.role_id WHERE roles.role_name='dosen' ");
+              while ($data = $query->fetch_array()) {
+                $id = $data['user_id'];
+                $kd_dosen = $data['user_code'];
+                $nama = $data['user_name'];
+                $email = $data['user_email'];
+                $alamat = $data['user_address'];
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            
+                isi_tabel($no, array($kd_dosen, $nama, $email, $alamat),"form/?act=edit&for=daftar-dosen","form/?act=delete&for=daftar-dosen", $id);
+                $no++;
+              }
+              
+              tutup_tabel(array("Kode Dosen","Nama","Email","Alamat"));
+              ?>
+            </div>
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
         </div>
-        <div class="box-body">
-          Ini Daftar dosen
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+        <!-- /.col -->
       </div>
-      <!-- /.box -->
-
+      <!-- /.row -->
     </section>
-    <!-- /.content -->
+    
+  
+
   </div>
-  <!-- /.content-wrapper -->
 
 
-<?php include "website/footer.php" ?>
+<?php
+include "website/footer.php" ?>
