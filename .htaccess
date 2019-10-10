@@ -31,4 +31,5 @@ RewriteRule ^dosen/daftar-jadwal/$ index.php?content=dosen/daftar-jadwal [L]
 
 RewriteRule ^logout$ website/logout.php [L]
 
+RewriteRule ^api/login$ website/api/login.php [L]
 </IfModule>

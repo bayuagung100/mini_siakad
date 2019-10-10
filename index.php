@@ -17,7 +17,7 @@ if (isset($_SESSION['is_login'])) {
     $default = "mahsiswa/home";
   }
   $content = isset($_GET['content']) ? $_GET['content'] : $default;
-  $page = array('admin/home', 'admin/daftar-dosen', 'admin/daftar-mahasiswa', 'admin/daftar-matkul', 'admin/daftar-jadwal', 'dosen/home', 'dosen/daftar-matkul', 'dosen/daftar-jadwal');
+  $page = array('admin/home', 'admin/daftar-dosen', 'admin/daftar-mahasiswa', 'admin/daftar-matkul', 'admin/daftar-jadwal', 'dosen/home', 'dosen/daftar-matkul', 'dosen/daftar-jadwal', 'api/login');
   foreach ($page as $pg) {
     if ($content == $pg and $kosong) {
       include 'website/' . $pg . '.php';
@@ -30,5 +30,3 @@ if (isset($_SESSION['is_login'])) {
 }
 
 if ($kosong) include 'website/404.php';
-
-?>
