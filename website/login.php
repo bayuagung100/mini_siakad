@@ -1,7 +1,7 @@
 <?php
   if (isset($_POST['login'])) {
       $username = $_POST['username'];
-      $password = md5($_POST['password']);
+      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $cekuser = $mysqli->query("SELECT * FROM users JOIN roles ON users.user_role_id = roles.role_id WHERE user_code='$username' AND user_password='$password'");
       $jmluser = $cekuser->num_rows;
       $data = $cekuser->fetch_array();

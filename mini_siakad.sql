@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 06 Okt 2019 pada 14.30
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.8
+-- Host: 127.0.0.1
+-- Generation Time: 10 Okt 2019 pada 09.04
+-- Versi Server: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ CREATE TABLE `attendance` (
   `attendance_id` int(11) NOT NULL,
   `attendance_user_id` int(11) NOT NULL,
   `attendance_schedule_id` int(11) NOT NULL,
-  `attendance_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `attendance_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `attendance_status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -78,8 +78,8 @@ CREATE TABLE `schedule` (
   `schedule_id` int(11) NOT NULL,
   `schedule_course_id` int(11) NOT NULL,
   `schedule_user_id` int(11) NOT NULL,
-  `schedule_start_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `schedule_end_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `schedule_start_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `schedule_end_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `schedule_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -108,16 +108,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_code`, `user_name`, `user_dob`, `user_address`, `user_email`, `user_phone_number`, `user_gender`, `user_image`, `user_password`, `user_role_id`) VALUES
-(1, '1001', 'Resi', '2019-10-10', '', '', '', 'L', '', '21232f297a57a5a743894a0e4a801fc3', 1),
-(2, 'admin', 'Administrator', '1998-09-14', 'Kampus', 'admin@gmail.com', '089634372389', 'L', '', '21232f297a57a5a743894a0e4a801fc3', 1),
-(3, 'dosen', 'Imam Sutanto', '2019-10-05', 'Kampus', 'imam@gmail.com', '', 'L', 'aceh-marathon.jpg', 'ce28eed1511f631af6b2a7bb0a85d636', 2);
+(1, '1001', 'Resi', '2019-10-10', '', '', '', 'L', '', '$2y$10$2rqhXJX1xd8sq9Hth7b2Bej3SGlgOl.UxSMr9Vi8Q9wP.lrbZq3YO', 1),
+(2, 'admin', 'Administrator', '1998-09-14', 'Kampus', 'admin@gmail.com', '089634372389', 'L', '', '$2y$10$awU4LKIqqArglcF5eGm.eOzLFZ0PiETUEpdHdvmgu4VnxLqCxWmTG', 1),
+(3, 'dosen', 'Imam Sutanto', '2019-10-05', 'Kampus', 'imam@gmail.com', '', 'L', 'aceh-marathon.jpg', '$2y$10$yvGmehXDf4d5HQTiU4s8dudz6BA6DgdW.Mw5I0596YVW.xOFessbu', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `attendance`
+-- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
   ADD PRIMARY KEY (`attendance_id`),
@@ -125,19 +125,19 @@ ALTER TABLE `attendance`
   ADD KEY `user_id` (`attendance_user_id`);
 
 --
--- Indeks untuk tabel `courses`
+-- Indexes for table `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`course_id`);
 
 --
--- Indeks untuk tabel `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Indeks untuk tabel `schedule`
+-- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`schedule_id`),
@@ -145,7 +145,7 @@ ALTER TABLE `schedule`
   ADD KEY `user_id` (`schedule_user_id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -153,35 +153,35 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`user_role_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `attendance`
+-- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
   MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `courses`
+-- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `schedule`
+-- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
   MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
