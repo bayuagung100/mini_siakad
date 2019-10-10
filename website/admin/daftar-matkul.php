@@ -47,7 +47,7 @@
                         </button>
                         <h4 class="modal-title">Tambah Matkul</h4>
                       </div>
-              
+               <div class="modal-body">
                     <div class="form-group">
                         <label>Kode Matkul</label>
                         <input type="text" class="form-control" required>
