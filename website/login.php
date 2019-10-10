@@ -1,11 +1,9 @@
 <?php
   if (isset($_POST['login'])) {
       $username = $_POST['username'];
-      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-      $cekuser = $mysqli->query("SELECT * FROM users JOIN roles ON users.user_role_id = roles.role_id WHERE user_code='$username' AND user_password='$password'");
-      $jmluser = $cekuser->num_rows;
+      $cekuser = $mysqli->query("SELECT * FROM users JOIN roles ON users.user_role_id = roles.role_id WHERE user_code='$username'");
       $data = $cekuser->fetch_array();
-      if ($jmluser > 0) {
+      if (password_verify($_POST['password'], $data['user_password'])) {
           $_SESSION['usercode'] = $data['user_code'];
           $_SESSION['nama'] = $data['user_name'];
           $_SESSION['dob'] = $data['user_dob'];
