@@ -34,6 +34,21 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+  </style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -127,6 +142,11 @@
                 if ($_SESSION['role']=='admin') {
                   echo'
                   <li>
+                    <a href="'.base_url('admin/').'">
+                      <i class="fa fa-plus-square"></i>Profile
+                    </a>
+                  </li>
+                  <li>
                     <a href="'.base_url('admin/daftar-dosen/').'">
                       <i class="fa fa-plus-square"></i>Daftar Dosen
                     </a>
@@ -149,6 +169,11 @@
                   ';
                 }elseif ($_SESSION['role']=='dosen') {
                   echo'
+                  <li>
+                    <a href="'.base_url('#').'">
+                      <i class="fa fa-plus-square"></i>Home
+                    </a>
+                  </li>
                   <li>
                     <a href="'.base_url('dosen/daftar-matkul/').'">
                       <i class="fa fa-plus-square"></i>Daftar Matkul

@@ -22,7 +22,11 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Daftar Matkul</h3>
-              <a class="btn btn-primary" style="float:right"><i class="fa fa-plus"></i> Tambah</a>
+            <!--  <a class="btn btn-primary" style="float:right"><i class="fa fa-plus"></i> Tambah</a>-->
+            <button class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#modal-default">
+            <i class="fa fa-plus"></i>
+              Tambah
+            </button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -33,6 +37,35 @@
               ?>
             </div>
             <!-- /.box-body -->
+<!--Modal Start-->
+            <div class="modal fade in" id="modal-default">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">X</span>
+                        </button>
+                        <h4 class="modal-title">Tambah Matkul</h4>
+                      </div>
+              
+                    <div class="form-group">
+                        <label>Kode Matkul</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Matkul</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+              </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" value="#">Simpan</button>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+<!--Modal End-->
           </div>
           <!-- /.box -->
         </div>
