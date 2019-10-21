@@ -31,9 +31,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <?php
-              buka_tabel(array("Kode Matkul","Nama Matkul"));
+              buka_tabel(array("Kode Matkul","Nama Matkul","Dosen"));
               
-              tutup_tabel(array("Kode Matkul","Nama Matkul"));
+              tutup_tabel(array("Kode Matkul","Nama Matkul","Dosen"));
               ?>
             </div>
             <!-- /.box-body -->
@@ -55,6 +55,14 @@
                     <div class="form-group">
                         <label>Nama Matkul</label>
                         <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                    <label>Dosen</label>
+                    <select class = "form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                    </select>
                     </div>
               </div>
                       <div class="modal-footer">

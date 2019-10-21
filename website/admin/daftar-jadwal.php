@@ -31,9 +31,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <?php
-              buka_tabel(array("Kode Jadwal","Jam Mulai","Jam Selesai"));
+              buka_tabel(array("Kode Jadwal","Mata Kuliah","Dosen","Jam Mulai","Jam Selesai"));
               
-              tutup_tabel(array("Kode Jadwal","Jam Mulai","Jam Selesai"));
+              tutup_tabel(array("Kode Jadwal","Mata Kuliah","Dosen","Jam Mulai","Jam Selesai"));
               ?>
             </div>
             <!-- /.box-body -->
@@ -51,8 +51,27 @@
  
                     <div class="form-group">
                         <label>Kode Jadwal</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control">
                     </div>
+
+                    <div class="form-group">
+                        <label>Mata Kuliah</label>
+                        <select class = "form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Dosen</label>
+                        <select class = "form-control" required>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label>Jam Mulai</label>
                         <input type="text" class="form-control" required>

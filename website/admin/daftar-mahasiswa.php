@@ -57,14 +57,35 @@
                         <label>Nama Mahasiswa</label>
                         <input type="text" class="form-control"required>
                     </div>
+
+                    <div class="form-group">
+                      <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <div>
+                      <label><input type="radio" name="jenis_kelamin" value="Laki Laki" required> Laki Laki</label>
+                    </div>
+                      <label><input type="radio" name="jenis_kelamin" value="Perempuan" required> Perempuan</label>
+                    </div>
+
                     <div class="form-group">
                         <label>Email</label>
+                        <input type="text" class="form-control" placeholder="example@esgul.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nomor Telepon</label>
                         <input type="text" class="form-control"required>
                     </div>
+
                     <div class="form-group">
                         <label for="jabatan">Alamat</label>
                         <input type="text" class="form-control"required>
                     </div>
+
+                    <div class="form-group">
+                    <label>Foto Dosen</label>
+                      <input type="file" id="gambar">
+                    </div>
+
               </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

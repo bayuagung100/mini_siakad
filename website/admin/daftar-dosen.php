@@ -92,14 +92,33 @@
                       <label>Nama Dosen</label>
                       <input type="text" name="nama_dosen" class="form-control" required>
                     </div>
+
+                    <div class="form-group">
+                      <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <div>
+                      <label><input type="radio" name="jenis_kelamin" value="Laki Laki" required> Laki Laki</label>
+                    </div>
+                      <label><input type="radio" name="jenis_kelamin" value="Perempuan" required> Perempuan</label>
+                    </div>
+
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="text" name="email" class="form-control" required>
+                      <input type="text" name="email" class="form-control" placeholder="example@esgul.com" required>
                     </div>
+
+                    <div class="form-group">
+                        <label>Nomor Telepon</label>
+                        <input type="text" class="form-control"required>
+                    </div>
+
                     <div class="form-group">
                       <label>Alamat</label>
-                      <textarea type="text" name="alamat" class="form-control" required></textarea>
+                      <textarea type="password" name="alamat" class="form-control" required></textarea>
                     </div>
+                    <div class="form-group">
+                    <label>Foto Dosen</label>
+                      <input type="file" id="gambar">
+                    </div>  
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
