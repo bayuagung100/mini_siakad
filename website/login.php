@@ -55,6 +55,15 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    .field-icon{
+      float: right;
+      margin-top: -25px;
+      position: relative;
+      z-index: 2;
+      padding-right: 10px;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -71,8 +80,8 @@
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+        <span toggle="#password" class="fa fa-eye field-icon toggle-password"></span>
       </div>
       <div class="row">
         
@@ -105,6 +114,17 @@
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' /* optional */
     });
+  });
+
+  $(".toggle-password").click(function() {
+
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
   });
 </script>
 </body>
