@@ -21,11 +21,13 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php
+              <h3>
+              <?php
                 $query = $mysqli->query("SELECT * FROM users WHERE user_role_id=2");
                 $jml = $query->num_rows;
                 echo $jml;
-                ?></h3>
+                ?>
+              </h3>
 
               <p>Daftar Dosen</p>
             </div>
@@ -40,7 +42,13 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>0</h3>
+              <h3>
+              <?php
+                $query = $mysqli->query("SELECT * FROM users WHERE user_role_id=3");
+                $jml = $query->num_rows;
+                echo $jml;
+                ?>
+              </h3>
 
               <p>Daftar Mahasiswa</p>
             </div>
@@ -55,7 +63,13 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>0</h3>
+              <h3>
+              <?php
+                $query = $mysqli->query("SELECT * FROM courses");
+                $jml = $query->num_rows;
+                echo $jml;
+                ?>
+              </h3>
 
               <p>Daftar Matkul</p>
             </div>
@@ -70,7 +84,13 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>0</h3>
+              <h3>
+              <?php
+                $query = $mysqli->query("SELECT * FROM schedule");
+                $jml = $query->num_rows;
+                echo $jml;
+                ?>
+              </h3>
 
               <p>Daftar Jadwal</p>
             </div>

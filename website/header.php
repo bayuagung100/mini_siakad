@@ -19,6 +19,13 @@
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/bower_components/select2/dist/css/select2.min.css">
+
+
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(''); ?>assets/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
