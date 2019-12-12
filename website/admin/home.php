@@ -21,7 +21,11 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>0</h3>
+              <h3><?php
+                $query = $mysqli->query("SELECT * FROM users WHERE user_role_id=2");
+                $jml = $query->num_rows;
+                echo $jml;
+                ?></h3>
 
               <p>Daftar Dosen</p>
             </div>

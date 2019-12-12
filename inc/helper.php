@@ -81,7 +81,7 @@ function text_form($label, $nama, $nilai, $tipe="text")
             <!-- text input -->
             <div class="form-group">
                 <label for="'.$nama.'">'.$label.'</label>
-                <input type="'.$tipe.'" id="'.$nama.'" name="'.$nama.'" class="form-control" value="'.$nilai.'">
+                <input type="'.$tipe.'" id="'.$nama.'" name="'.$nama.'" class="form-control" value="'.$nilai.'" required>
             </div>
     ';
 }
@@ -91,19 +91,22 @@ function textarea_form($label, $nama, $nilai)
     echo '
             <div class="form-group">
                 <label for="'.$nama.'">'.$label.'</label>
-                <textarea id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" class="form-control" rows="3" ></textarea>
+                <textarea id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" class="form-control" rows="3" required>'.$nilai.'</textarea>
             </div>
     ';
 }
 
-function genre_form($label, $nama)
+function genre_form($label, $nama, $list, $nilai)
 {
     echo '
         <div class="form-group">
             <label>'.$label.'</label>
-            <select class="form-control" name="'.$nama.'">
-                <option value="L">Laki-Laki</option>
-                <option value="P">Perempuan</option>
+            <select class="form-control" name="'.$nama.'" required>';
+            foreach ($list as $ls) {
+                $select = $ls['val'] == $nilai ? 'selected' : '';
+                echo '<option value=' . $ls['val'] . ' ' . $select . '>' . $ls['cap'] . '</option>';
+            }
+    echo'
             </select>
         </div>
     ';
@@ -112,8 +115,15 @@ function image_form($label, $nama, $nilai)
 {
     echo '
         <div class="form-group">
-            <label for="'.$nama.'">'.$label.'</label>
-            <input type="file" id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'">
+            <label for="'.$nama.'">'.$label.'</label>';
+            if ($nilai == "") {
+                echo '<input type="file" id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" required>';
+            } else {
+                echo '<br><img src="'.base_url("assets/image/").'' . $nilai . '" width="150" style="margin-bottom: 10px">';
+                echo '<input type="file" id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" required>';
+            }
+    echo'
+            
             <p class="help-block">Format yang didukung: .jpeg, .jpg, .png</p>
         </div>
     ';

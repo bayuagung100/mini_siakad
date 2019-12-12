@@ -22,21 +22,8 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-           
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th style="width: 10px">No</th>
-                  <th>Kode Dosen</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>Alamat</th>
-                  <th style="width: 150px">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <?php
+            <?php
+              buka_tabel(array("Kode Dosen","Nama","Email","Alamat"));
                   $no = 1;
                   $query = $mysqli->query("SELECT * FROM users JOIN roles ON users.user_role_id = roles.role_id WHERE roles.role_name='dosen' ");
                   while ($data = $query->fetch_array()) {
@@ -47,6 +34,7 @@
                     $alamat = $data['user_address'];
                     
                     echo '
+                    <tr>
                     <td>'.$no.'</td>
                     <td>'.$kd_dosen.'</td>
                     <td>'.$nama.'</td>
@@ -60,15 +48,12 @@
                         <i class="fa fa-trash"></i> Delete
                       </a>
                     </td>
+                    </tr>
                     ';
                     $no++;
                   }
-                  ?>
-
-                </tr>
-              </tbody>
-
-            </table>
+              tutup_tabel(array("Kode Dosen","Nama","Email","Alamat"));
+            ?>
           </div>
           <!-- /.box-body -->
           <!--Modal Tambah-->
@@ -84,41 +69,21 @@
                 <form method="post" action="aksi/" role="form" enctype="multipart/form-data">
                   <input type="hidden" name="aksi" value="admin-tambah-dosen">
                   <div class="modal-body">
-                    <div class="form-group">
-                      <label>Kode Dosen</label>
-                      <input type="text" name="kd_dosen" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Nama Dosen</label>
-                      <input type="text" name="nama_dosen" class="form-control" required>
-                    </div>
+                    <?php
+                        text_form("Kode Dosen", "kd_dosen","");
+                        text_form("Nama", "nama_dosen","");
+                        text_form("Email", "email_dosen","","email");
+                        text_form("No Tlp", "hp_dosen","");
+                        text_form("Tanggal Lahir", "dob_dosen","","date");
 
-                    <div class="form-group">
-                      <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <div>
-                      <label><input type="radio" name="jenis_kelamin" value="Laki Laki" required> Laki Laki</label>
-                    </div>
-                      <label><input type="radio" name="jenis_kelamin" value="Perempuan" required> Perempuan</label>
-                    </div>
-
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="text" name="email" class="form-control" placeholder="example@esgul.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Nomor Telepon</label>
-                        <input type="text" class="form-control"required>
-                    </div>
-
-                    <div class="form-group">
-                      <label>Alamat</label>
-                      <textarea type="password" name="alamat" class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                    <label>Foto Dosen</label>
-                      <input type="file" id="gambar">
-                    </div>  
+                        $list = array();
+                        $list[] = array('val'=>'', 'cap'=>'Pilih Jenis Kelamin');
+                        $list[] = array('val'=>'L', 'cap'=>'Laki-Laki');
+                        $list[] = array('val'=>'P', 'cap'=>'Perempuan');
+                        genre_form("Jenis Kelamin", "gender_dosen", $list,"");
+                        image_form("Foto", "foto_dosen","");
+                        textarea_form("Alamat", "alamat_dosen","");
+                        ?>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -136,6 +101,10 @@
               $kd_dosen = $data['user_code'];
               $nama = $data['user_name'];
               $email = $data['user_email'];
+              $hp = $data['user_phone_number'];
+              $dob = $data['user_dob'];
+              $gender = $data['user_gender'];
+              $foto = $data['user_image'];
               $alamat = $data['user_address'];
               echo '
               <!--Modal Edit-->
@@ -151,23 +120,21 @@
                     <form method="post" action="aksi/" role="form" enctype="multipart/form-data">
                       <input type="hidden" name="id" value="'.$id.'">
                       <input type="hidden" name="aksi" value="admin-edit-dosen">
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label>Kode Dosen</label>
-                          <input type="text" name="kd_dosen" class="form-control" value="'.$kd_dosen.'" required>
-                        </div>
-                        <div class="form-group">
-                          <label>Nama Dosen</label>
-                          <input type="text" name="nama_dosen" class="form-control" value="'.$nama.'" required>
-                        </div>
-                        <div class="form-group">
-                          <label>Email</label>
-                          <input type="text" name="email" class="form-control" value="'.$email.'" required>
-                        </div>
-                        <div class="form-group">
-                          <label>Alamat</label>
-                          <textarea type="text" name="alamat" class="form-control" required>'.$alamat.'</textarea>
-                        </div>
+                      <div class="modal-body">';
+                        text_form("Kode Dosen", "kd_dosen",$kd_dosen);
+                        text_form("Nama", "nama_dosen",$nama);
+                        text_form("Email", "email_dosen",$email,"email");
+                        text_form("No Tlp", "hp_dosen",$hp);
+                        text_form("Tanggal Lahir", "dob_dosen",$dob,"date");
+
+                        $list = array();
+                        $list[] = array('val'=>'', 'cap'=>'Pilih Jenis Kelamin');
+                        $list[] = array('val'=>'L', 'cap'=>'Laki-Laki');
+                        $list[] = array('val'=>'P', 'cap'=>'Perempuan');
+                        genre_form("Jenis Kelamin", "gender_dosen", $list, $gender);
+                        image_form("Foto", "foto_dosen",$foto);
+                        textarea_form("Alamat", "alamat_dosen",$alamat);
+              echo'    
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
