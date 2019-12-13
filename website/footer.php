@@ -17,6 +17,8 @@
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- date-range-picker -->
@@ -24,6 +26,8 @@
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url('');?>assets/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url('');?>assets/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -33,15 +37,24 @@
 <script src="<?php echo base_url('');?>assets/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('');?>assets/AdminLTE/dist/js/demo.js"></script>
+
 <script>
   $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
+    $('.sidebar-menu').tree();
+    $('.select2').select2();
+  });
 </script>
+
 <!-- page script -->
 <script>
   $(function () {
-    $('#example1').DataTable()
+    //Initialize Select2 Elements
+    
+
+
+
+    $('#example1').DataTable();
+
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
@@ -49,8 +62,13 @@
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false
-    })
-  })
+    });
+
+    //Timepicker
+    $('.timepicker').timepicker({
+      showInputs: false
+    });
+  });
 </script>
 </body>
 </html>
